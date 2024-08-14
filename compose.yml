@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: serverApache2
+    restart: always
+    depends_on:
+      - mysql
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+    environment:
+      - APP_ENV=dev
+      - DATABASE_URL=mysql://root:root@mysql:3306/symfony_db
+
+  mysql:
+    image: mariadb
+    container_name: serverMySQL2
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=symfony_db
+    ports:
+      - "3308:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./mysql.sql:/docker-entrypoint-initdb.d/mysql.sql
+
+  phpmyadmin:
+    image: phpmyadmin
+    container_name: serverPHPMyAdmin2
+    restart: always
+    depends_on:
+      - mysql
+    environment:
+      PMA_HOST: mysql
+    ports:
+      - "8081:80"
+
+volumes:
+  mysql_data:
