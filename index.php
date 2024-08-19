@@ -1,5 +1,6 @@
 <?php
-    require "./template/header.php"
+    $title = "La taverne du Planeswalker";
+    require "./template/header.php";
 ?>
 
 <div class="container">

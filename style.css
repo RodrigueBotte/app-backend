@@ -21,7 +21,10 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-
+    a{
+        color: black;
+        text-decoration: none;
+    }
     i {
         position: absolute;
         top: 5%;
@@ -42,7 +45,6 @@ main {
     align-items: center;
     justify-content: center;
 }
-
 .container {
     display: flex;
     flex-direction: row;
@@ -52,6 +54,25 @@ main {
         width: 500px;
     }
 }
+
+.connexion, .inscription{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    form, div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        p{
+            font-size: 15px;
+        }
+    }
+    
+}
+
 
 footer {
     grid-row: 3;
