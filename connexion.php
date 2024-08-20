@@ -1,5 +1,13 @@
 <?php
-session_start();
+session_start(["cookie_lifetime" => 3600]);
+
+if (isset($_SESSION['logged']) && $_SESSION["logged"] === true) {
+    header("Location: ./profile.php");
+    exit;
+}
+
+$username = $pass = "";
+
 
 
 $title = "Connexion";
@@ -13,7 +21,7 @@ require './template/header.php'
         <input type="text" name="username" id="username">
         <label for="password">Mot de passe</label>
         <input type="password" name="password" id="password">
-        <input type="submit" value="Connexion">
+        <input type="submit" value="connexion" name="connexion">
     </form>
     <div>
         <p>Je ne possède pas de compte</p>
