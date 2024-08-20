@@ -56,10 +56,11 @@ main {
     }
 }
 
-.connexion, .inscription{
+.connexion, .inscription, .profil{
+    height: 35vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     gap: 25px;
     form, div{
@@ -68,7 +69,10 @@ main {
         align-items: center;
         gap: 5px;
         p{
-            font-size: 15px;
+            font-size: 2rem;
+        }
+        .profil{
+            height: 25vh;
         }
     }
     
