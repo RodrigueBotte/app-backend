@@ -6,13 +6,22 @@ shouldBeLogged(true, "./connexion.php");
 require "./service/pdo.php";
 
 $connexion = connexionPDO();
-$sql = $connexion->prepare("DELETE FROM users WHERE id = ?");
-if ($sql->execute([(int)$_GET['id']])) {
+$connexion->beginTransaction();
+try {
+    $sql = $connexion->prepare("DELETE FROM users WHERE id = ?");
+    $sql->execute([$_GET['id']]);
+
+    $sql = $connexion->prepare("DELETE FROM inscription WHERE user_id = ?");
+    $sql->execute([$_GET['id']]);
+
+    $connexion->commit();
     unset($_SESSION['id']);
     session_destroy();
     setcookie("PHPSESSID", "", time()-3600, "/");
     header("refresh:5; url=./index.php");
-} else {
+
+} catch (\Exception $e) {
+    $connexion->rollBack();
     echo "Une erreur s'est produite lors de la suppression du compte.";
 }
 

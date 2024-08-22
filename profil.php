@@ -28,8 +28,8 @@ require "./template/header.php";
 </script>
 <div class="profil">
     <h2>Page de profil</h2>
-    <p>Pseudo : <?php echo $users['username'] ?></p>
-    <p>Email : <?php echo $users['email'] ?></p>
+    <p>Pseudo : <?php echo htmlspecialchars($users['username']) ?></p>
+    <p>Email : <?php echo htmlspecialchars($users['email']) ?></p>
     <?php if (!empty($decks)): ?>
         <p>Deck(s) :</p>
         <?php foreach ($decks as $deck): ?>
