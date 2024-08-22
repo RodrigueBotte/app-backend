@@ -25,7 +25,7 @@ require "./template/header.php"
 ?>
 <div class="participation">
     <form action="" method="post">
-        <p><?php echo $participant['username'] ?></p>
+        <p>Nom du participant: <?php echo $participant['username'] ?></p>
     <label for="deck">Nom du deck et ses couleurs :</label>
     <input type="text" name="deck" id="deck">
     <input type="submit" value="Valider ma participation">

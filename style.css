@@ -62,7 +62,8 @@ main {
 
 .connexion,
 .inscription,
-.profil {
+.profil,
+.update {
     height: 35vh;
     display: flex;
     flex-direction: column;

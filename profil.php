@@ -34,6 +34,7 @@ require "./template/header.php";
         <p>Deck(s) :</p>
         <?php foreach ($decks as $deck): ?>
             <p><?php echo htmlspecialchars($deck['deck_name']); ?></p>
+            <a href="./update/updateDeck.php?id=<?php echo $users['id'] ?>">Changer de deck pour le tournoi</a>
         <?php endforeach; ?>
     <?php else: ?>
         <p></p>
