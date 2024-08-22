@@ -16,7 +16,7 @@
             Et aussi, un booster d’extension d’Ixalan sera ajouté tous les 2 joueurs inscrits. La moitié sera distribué aux premiers joueurs, et l’autre moitié le sera au hasard parmi les joueurs restants.<br>
 
             L’extension Meurtres au manoir Karlov est encore récente, et il y a encore surement pleins de choses à tester et découvrir. Venez tester vos dernières créations</p>
-        <button>Participer</button>
+        <a href="./participation.php"><button>Participer</button></a>
     </div>
 </div>
 

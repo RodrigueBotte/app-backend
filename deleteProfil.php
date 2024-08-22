@@ -9,8 +9,9 @@ $connexion = connexionPDO();
 $sql = $connexion->prepare("DELETE FROM users WHERE id = ?");
 if ($sql->execute([(int)$_GET['id']])) {
     unset($_SESSION['id']);
+    session_destroy();
     setcookie("PHPSESSID", "", time()-3600, "/");
-    header("refresh:5;url=./index.php");
+    header("refresh:5; url=./index.php");
 } else {
     echo "Une erreur s'est produite lors de la suppression du compte.";
 }

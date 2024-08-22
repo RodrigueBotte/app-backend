@@ -1,0 +1,50 @@
+<?php
+session_start();
+require "./service/pdo.php";
+
+$pdo = connexionPDO();
+$sql = $pdo->prepare("SELECT users.username, users.email, inscription.deck_name
+FROM users
+JOIN inscription ON users.id = inscription.user_id
+WHERE users.id = ?;");
+$sql->execute([$_SESSION['id']]);
+$users = $sql->fetchAll(PDO::FETCH_ASSOC);
+// var_dump($users['id'], $_SESSION['id']);
+
+// $sql = $pdo->prepare("SELECT users.username, inscription.deck_name
+// FROM users
+// JOIN inscription ON users.id = inscription.user_id
+// WHERE users.id = ?;"
+// );
+// $sql->execute(['id_user']);
+// $inscrit = $sql->fetch();
+// var_dump($inscrit['deck_name']);
+
+
+
+$title = "Page de profil";
+require "./template/header.php";
+?>
+<script>
+    function confirmDelete(event) {
+        event.preventDefault;
+        var useConfirm = confirm("Etes vous sur de vouloir supprimer votre compte?")
+
+        if (useConfirm) {
+            window.location.href = event.target.href;
+        }
+    }
+</script>
+<div class="profil">
+    <h2>Page de profil</h2>
+    <p>Pseudo : <?php echo $users[0]['username'] ?></p>
+    <p>Email : <?php echo $users[0]['email'] ?></p>
+    <p>Deck : <?php echo $users[0]['deck_name'] ?></p>
+    <a href="./deconnexion.php"><button>Deconnexion</button></a>
+    <a href="./deleteProfil.php?id=<?php echo $users[0]["user_id"]?>" onclick="confirmDelete(event)"><button>Supprimer son compte</button></a>
+</div>
+
+
+<?php
+require "./template/footer.php";
+?>

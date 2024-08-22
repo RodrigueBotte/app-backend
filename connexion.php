@@ -69,7 +69,7 @@ require './template/header.php'
         <span class="erreur" style="color: red;"><?php echo $error["connexion"]??"" ?></span>
     </form>
     <div>
-        <p>Je ne possède pas de compte</p>
+        <p style="font-size: 1rem;">Je ne possède pas de compte</p>
         <a href="./inscription.php"><button>Inscription</button></a>
     </div>
 </div>
