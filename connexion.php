@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['connexion'])) {
                 exit;
             }
             else{
-                $error["connexion"] = "Mot de Passe Incorect";
+                $error["connexion"] = "Mot de Passe Incorrect";
             }
         }
         else{

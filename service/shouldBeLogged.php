@@ -1,6 +1,6 @@
 <?php
-if(session_start() === PHP_SESSION_NONE)
-    session_start();
+// if(session_start() === PHP_SESSION_NONE)
+//     session_start();
 
 /**
  * La fonction sert à vérifier si l'utilisateur est connection, 
