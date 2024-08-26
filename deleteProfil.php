@@ -1,11 +1,17 @@
 <?php
 session_start();
+// on vérifie que la personne est connnectée
 require "./service/shouldBeLogged.php";
 shouldBeLogged(true, "./connexion.php");
 
 require "./service/pdo.php";
 
 $connexion = connexionPDO();
+
+// on utilise beginTransaction() pour vérifier que chaque suppression est bien effectué 
+// afin de supprimer l'utilisateur ainsi que tout ce qui lui ai lié par son ID dans l'autre partie de la bdd
+// s'il n'y a pas d'erreur, commit() valide les suppressions
+// s'il y a une erreur durant l'une des suppresions, on revient en arrière grâce à rollBack()
 $connexion->beginTransaction();
 try {
     $sql = $connexion->prepare("DELETE FROM users WHERE id = ?");

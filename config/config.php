@@ -1,4 +1,5 @@
 <?php
+// Création du fichier de configuration pour faciliter les changements des parametres facilement
 return [
     "host" => $_ENV["DB_HOST"],
     "port" => "3306",

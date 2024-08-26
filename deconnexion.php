@@ -1,5 +1,4 @@
 <?php
-// Démarrer ou reprendre la session
 session_start();
 
 // Vérifier si une session est active

@@ -82,9 +82,11 @@ main {
             height: 25vh;
         }
     }
+    span{
+        font-style: italic;
+    }
 }
 .participation{
-    background-color: aqua;
     display: flex;
     flex-direction: column;
 }

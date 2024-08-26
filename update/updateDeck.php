@@ -4,11 +4,6 @@ session_start();
 require "../service/shouldBeLogged.php";
 shouldBeLogged(true, "../connexion.php");
 
-// if (!isset($_SESSION['user_id'], $_GET['id']) || $_SESSION['user_id'] != $_GET['id']) {
-//     header("Location: ../profil.php");
-//     exit;
-// }
-
 require "../service/pdo.php";
 $connexion = connexionPDO();
 $sql = $connexion->prepare("SELECT * FROM inscription WHERE user_id = ? ");
