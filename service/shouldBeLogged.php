@@ -2,8 +2,8 @@
 
 /**
  * La fonction sert à vérifier si l'utilisateur est connection, 
- * Si true, l'utilisateur est connecté
- * si false, il est déconnecté
+ * Si true, vérifie si l'utilisateur est connecté
+ * si false, vérifie s'il est déconnecté
  *
  * @param boolean $logged
  * @param string $redict

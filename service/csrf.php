@@ -3,7 +3,7 @@ if(session_status() === PHP_SESSION_NONE)
     session_start();
 
     /**
-     * créer un otken de session et le place dans un input hidden
+     * créer un token de session et le place dans un input hidden
      *
      * @param integer $time
      * @return void
@@ -35,10 +35,9 @@ function isCSRFValid(): bool {
         }
     }
     // Sinon on retourne une erreur 405
-    if (isset($_SERVER['SERVER_PROTOCOL'])) {
+    if (isset($_SERVER['SERVER_PROTOCOL']))
         header($_SERVER['SERVER_PROTOCOL'].' 405 Method Not Allowed');
         exit;
-    }
     return false;
 }
 

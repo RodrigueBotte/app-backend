@@ -1,6 +1,6 @@
 <?php
 // Fichier qui va permettre facilement l'appel à la bdd sous forme de fonction
-function connexionPDO(): \PDO {
+function connexionPDO(): PDO {
     // On appel le fichier config pour l'accées aux variables
     $config = require __DIR__."/../config/config.php";
 

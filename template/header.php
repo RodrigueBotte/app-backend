@@ -11,6 +11,6 @@
 <body>
     <header>
         <a href="../index.php"><h1>La Taverne du Planeswalker</h1></a>
-        <a href="../connexion.php"><i class="fa-regular fa-circle-user" style="color: #FFD43B;"></i></a>
+        <a href="../connexion.php"><i class="fa-regular fa-circle-user" style="color: #FFFFFF;"></i></a>
     </header>
 <main>
