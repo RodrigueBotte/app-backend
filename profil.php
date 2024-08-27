@@ -33,16 +33,16 @@ require "./template/header.php";
     <!-- On affiche les données de la bdd avec htmlspecialchars pour éviter le XSS -->
     <p>Pseudo : <?php echo htmlspecialchars($users['username']) ?></p>
     <p>Email : <?php echo htmlspecialchars($users['email']) ?></p>
-    <?php if (!empty($decks)): ?>
-        <p>Deck(s) :</p>
-        <?php foreach ($decks as $deck): ?>
-            <p><?php echo htmlspecialchars($deck['deck_name']); ?></p>
-            <!-- lien permettant de modifier les informations du deck -->
-            <a href="./update/updateDeck.php?id=<?php echo $users['id'] ?>">Changer de deck pour le tournoi</a>
-        <?php endforeach; ?>
-    <?php else: ?>
-        <p></p>
-    <?php endif; ?>
+    <div>
+        <?php if (!empty($decks)): ?>
+            <p>Deck pour le tournoi :</p>
+            <?php foreach ($decks as $deck): ?>
+                <p><?php echo htmlspecialchars($deck['deck_name']); ?></p>
+                <!-- lien permettant de modifier les informations du deck -->
+                <a href="./update/updateDeck.php?id=<?php echo $users['id'] ?>">Changer de deck pour le tournoi</a>
+            <?php endforeach; ?>
+        <?php endif; ?>
+    </div>
     <!-- lien vers la deconnexion et la suppresion du compte -->
     <a href="./deconnexion.php"><button>Deconnexion</button></a>
     <a href="./deleteProfil.php?id=<?php echo $users["id"] ?>" onclick="confirmDelete(event)"><button>Supprimer son compte</button></a>

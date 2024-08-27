@@ -67,6 +67,7 @@ main {
 .inscription,
 .profil,
 .update {
+    width: auto;
     height: 35vh;
     display: flex;
     flex-direction: column;
@@ -89,6 +90,9 @@ main {
     span {
         font-style: italic;
     }
+}
+.update{
+    height: 20vh;
 }
 
 .participation {
