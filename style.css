@@ -85,13 +85,19 @@ main {
             height: 25vh;
         }
     }
-    span{
+
+    span {
         font-style: italic;
     }
 }
-.participation{
+
+.participation {
     display: flex;
     flex-direction: column;
+
+    span {
+        font-style: italic;
+    }
 }
 
 footer {
