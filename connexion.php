@@ -1,5 +1,6 @@
 <?php
 session_start(["cookie_lifetime" => 3600]);
+require "./service/csrf.php";
 
 if (isset($_SESSION['logged']) && $_SESSION["logged"] === true) {
     header("Location: ./profil.php");
@@ -15,13 +16,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['connexion'])) {
         $error["email"] = "Veuillez entrer votre email";
     }
     else{
-        $email = trim($_POST['email']);
+        $email = cleanData($_POST['email']);
     }
     if (empty($_POST['password'])) {
         $error['password'] = "Veuillez entrer votre mot de passe!";
     }
     else{
-        $password = trim($_POST['password']);
+        $password = cleanData($_POST['password']);
+    }
+    // verification of token in the formulary
+    if (!isCSRFValid()) {
+        $error['csrf'] = "La methode utilisée n'est pas autorisée";
     }
     if (empty($error)) {
         require "./service/pdo.php";
@@ -42,11 +47,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['connexion'])) {
                 exit;
             }
             else{
-                $error["connexion"] = "Mot de Passe Incorrect";
+                $error["connexion"] = "Identifiants Incorrects";
             }
         }
         else{
-            $error["connexion"] = "Email Incorrect";
+            $error["connexion"] = "Identifants Incorrects";
         }
     }
 }
@@ -65,6 +70,8 @@ require './template/header.php'
         <label for="password">Mot de passe : </label>
         <input type="password" name="password" id="password">
         <span class="erreur" style="color: red;"><?php echo $error["password"]??"" ?></span>
+        <?php setCSRF(10); ?>
+        <span class="erreur" style="color: red;"><?php echo $error["csrf"]??"" ?></span>
         <input type="submit" value="connexion" name="connexion">
         <span class="erreur" style="color: red;"><?php echo $error["connexion"]??"" ?></span>
     </form>

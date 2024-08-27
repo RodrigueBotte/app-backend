@@ -15,6 +15,7 @@ body {
 header {
     grid-row: 1;
     background-image: url(./image/tcg.jpg);
+    background-position: center;
     background-color: darkcyan;
     width: 100vw;
     height: 20vh;
@@ -24,8 +25,9 @@ header {
     justify-content: center;
 
     a {
-        color: black;
+        color: rgb(255, 255, 255);
         text-decoration: none;
+        text-shadow: 2px solid black;
     }
 
     i {
@@ -96,7 +98,7 @@ footer {
     grid-row: 3;
     width: 100vw;
     height: 5vh;
-    background-color: rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0.537);
     display: flex;
     align-items: center;
     justify-content: center;

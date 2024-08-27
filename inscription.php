@@ -65,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['inscription'])) {
     }
     // verification of token in the formulary
     if (!isCSRFValid()) {
-        $error = "La methode utilisée n'est pas autorisée";
+        $error['csrf'] = "La methode utilisée n'est pas autorisée";
     }
 
     // if we don't have any $error, we send identifiant in the bdd
@@ -94,9 +94,10 @@ require './template/header.php'
         <span class="erreur" style="color: red;"><?php echo $error["email"] ?? "" ?></span>
         <label for="password">Mot de passe</label>
         <input type="password" name="password" id="password" required>
+        <span class="erreur" style="color: red;"><?php echo $error["password"] ?? "" ?></span>
         <!-- Mise en place d'un token avec un timer de 10 min dans un input hidden -->
         <?php setCSRF(10); ?>
-        <span class="erreur" style="color: red;"><?php echo $error["password"] ?? "" ?></span>
+        <span class="erreur" style="color: red;"><?php echo $error["csrf"] ?? "" ?></span>
         <label for="passwordBis">Confirmation du mot de passe</label>
         <input type="password" name="passwordBis" id="passwordBis" required>
         <span class="erreur" style="color: red;"><?php echo $error["passwordBis"] ?? "" ?></span>
