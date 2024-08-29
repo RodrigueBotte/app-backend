@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['connexion'])) {
             }
         }
         else{
-            $error["connexion"] = "Identifants Incorrects";
+            $error["connexion"] = "Cet email n'est pas valide";
         }
     }
 }

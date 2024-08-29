@@ -4,6 +4,13 @@ session_start();
 require "./service/shouldBeLogged.php";
 shouldBeLogged(true, "./connexion.php");
 
+$user_id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+var_dump($user_id);
+if ($user_id === false || $user_id != $_SESSION['id']) {
+    echo "ID utilisateur invalide.";
+    exit;
+}
+
 require "./service/pdo.php";
 
 $connexion = connexionPDO();

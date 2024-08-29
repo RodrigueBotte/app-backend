@@ -44,9 +44,6 @@ require "../template/header.php"
         <input type="submit" value="Valider">
     </form>
 </div>
-
-
-
 <?php
 require "../template/footer.php"
 ?>

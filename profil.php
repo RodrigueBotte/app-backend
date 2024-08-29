@@ -12,6 +12,7 @@ $users = $sql->fetch(PDO::FETCH_ASSOC);
 $sql = $pdo->prepare("SELECT inscription.deck_name FROM inscription WHERE user_id = :id");
 $sql->execute(['id' => $_SESSION['id']]);
 $decks = $sql->fetchAll(PDO::FETCH_ASSOC);
+var_dump($users['id']);
 
 
 $title = "Page de profil";
@@ -20,7 +21,7 @@ require "./template/header.php";
 <!-- mise en place d'une fonction contenant une alerte à confirmer si l'on veut supprimer son compte -->
 <script>
     function confirmDelete(event) {
-        event.preventDefault;
+        event.preventDefault();
         var useConfirm = confirm("Etes vous sur de vouloir supprimer votre compte?")
 
         if (useConfirm) {
@@ -45,7 +46,7 @@ require "./template/header.php";
     </div>
     <!-- lien vers la deconnexion et la suppresion du compte -->
     <a href="./deconnexion.php"><button>Deconnexion</button></a>
-    <a href="./deleteProfil.php?id=<?php echo $users["id"] ?>" onclick="confirmDelete(event)"><button>Supprimer son compte</button></a>
+    <a href="./deleteProfil.php?id=<?php echo $users["id"] ?>" ><button>Supprimer son compte</button></a>
 </div>
 
 
