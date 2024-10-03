@@ -12,7 +12,6 @@ $users = $sql->fetch(PDO::FETCH_ASSOC);
 $sql = $pdo->prepare("SELECT inscription.deck_name FROM inscription WHERE user_id = :id");
 $sql->execute(['id' => $_SESSION['id']]);
 $decks = $sql->fetchAll(PDO::FETCH_ASSOC);
-var_dump("./deleProfil.php?id=".$users['id']);
 
 
 $title = "Page de profil";
